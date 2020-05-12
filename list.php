@@ -30,6 +30,7 @@ fclose($file);
                     <th>Priorité</th>
                 </tr>
             <?php 
+                if(isset($content)){
                 foreach($content as $value){ 
                 $i = 0;
             ?>
@@ -39,7 +40,7 @@ fclose($file);
                         <td><?php print_r($value[$i+2]) ?></td>
                         <td><?php print_r($value[$i+3]) ?></td>
                     </tr>
-            <?php $i++; } ?>
+            <?php $i++; }} ?>
                 
                 
             </table>

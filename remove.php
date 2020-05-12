@@ -16,20 +16,20 @@ if(isset($_GET['fRemv'])){
             unset($content[$key]);
         }
     }
-    var_dump($content);
 }
 
-foreach($content as $value){
-    if(!empty($value)){
-        fputcsv($file, $value);
+if(isset($_GET['fRemv'])){
+    foreach($content as $value){
+        if(!empty($value)){
+            fputcsv($file, $value);
+        }
     }
 }
 
+
+//var_dump($content);
+
 fclose($file);
-
-
-
-
 
 ?>
 
