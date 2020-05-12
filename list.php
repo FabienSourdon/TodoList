@@ -29,8 +29,9 @@ fclose($file);
                     <th>Date</th>
                     <th>Priorité</th>
                 </tr>
-            <?php foreach($content as $value){ 
-                    $i = 0;   
+            <?php 
+                foreach($content as $value){ 
+                $i = 0;
             ?>
                     <tr>
                         <td><?php print_r($value[$i]) ?></td>
