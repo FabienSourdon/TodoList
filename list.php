@@ -1,12 +1,27 @@
 <?php 
+    $file = fopen('tasks.csv', 'r');
 
-$file = fopen('tasks.csv', 'r');
-
-while(($data = fgetcsv($file)) !== FALSE){
+    while(($data = fgetcsv($file)) != FALSE){
     $content[] = $data;
-};
-fclose($file);
+    };
+    fclose($file);
 
+    function writeTr($contCont) // ici on crée la variable "$contCont", propre a la fonction et qui contiendra les valeurs de $content (grâce au echo writeTr($content) [ligne 51])
+    {
+        if(!empty($contCont)){
+            $tmpVal = "";
+            foreach($contCont as $value){
+                $tmpVal .='
+                <tr>
+                <td>'.$value[0].'</td>
+                <td>'.$value[1].'</td>
+                <td>'.$value[2].'</td>
+                <td>'.$value[3].'</td>
+                </tr>';
+            };
+            return $tmpVal;
+        };
+    };
 ?>
 
 <!DOCTYPE html>
@@ -29,20 +44,7 @@ fclose($file);
                     <th>Date</th>
                     <th>Priorité</th>
                 </tr>
-            <?php 
-                if(isset($content)){
-                foreach($content as $value){ 
-                $i = 0;
-            ?>
-                    <tr>
-                        <td><?php print_r($value[$i]) ?></td>
-                        <td><?php print_r($value[$i+1]) ?></td>
-                        <td><?php print_r($value[$i+2]) ?></td>
-                        <td><?php print_r($value[$i+3]) ?></td>
-                    </tr>
-            <?php $i++; }} ?>
-                
-                
+                <?php echo writeTr($content); ?>
             </table>
         </div>
     </main>

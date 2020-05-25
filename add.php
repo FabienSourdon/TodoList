@@ -1,12 +1,14 @@
-<?php 
-var_dump($_POST);
+<?php
 
-if(!empty($_POST)){
-    $file = fopen('tasks.csv', 'a');
-    fputcsv($file, $_POST);
-    fclose($file);
+function addContent($contPost){
+    if(!empty($contPost)){
+        $file = fopen('tasks.csv', 'a');
+        fputcsv($file, $contPost);
+        fclose($file);
+    }
 }
 
+addcontent($_POST);
 ?>
 
 <!DOCTYPE html>
