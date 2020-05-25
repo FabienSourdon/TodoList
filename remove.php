@@ -2,7 +2,7 @@
 
 $file = fopen('tasks.csv', 'r');
 
-while(($data = fgetcsv($file)) !== FALSE){
+while(($data = fgetcsv($file)) != FALSE){
     $content[] = $data;
 };
 
@@ -12,7 +12,6 @@ if(isset($_GET['fRemv'])){
     unsetCsv($_GET, $content);
     $content = unsetCsv($_GET, $content);
     writeCsv($_GET, $content);
-
 }
 
 function unsetCsv($contGet, $contCont){
